@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой сайт</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div>
+    <p>Введите длину пароля</p>
+    <input type="number" id="NUUUUUUUUUUMBERS">
+    <p><input type="checkbox" id="Numbers"> Цифры</p>
+    <p><input type="checkbox" id="numbers"> Буквы нижнего регистра</p>
+    <p><input type="checkbox" id="NUMBERS"> Буквы верхнего регистра</p>
+    <p><input type="checkbox" id="special-numbers"> Спец-символы</p>
+    <button id="knopka">Сгенерировать</button>
+    <p>Ваш пароль: </p>
+    <p id="passwird">Ожидает генерации...</p>
+</div>
+
+
+
+<script>
+    // Добавляем обработчик события после загрузки DOM
+    document.addEventListener('DOMContentLoaded', function() {
+        const knopka = document.getElementById('knopka');
+        const passwordInput = document.getElementById('NUUUUUUUUUUMBERS');
+        const numbersCheckbox = document.getElementById('Numbers');
+        const lowercaseCheckbox = document.getElementById('numbers');
+        const uppercaseCheckbox = document.getElementById('NUMBERS');
+        const symbolsCheckbox = document.getElementById('special-numbers');
+        const resultElement = document.getElementById('passwird');
+
+        knopka.addEventListener("click", () => {
+            // Получаем длину пароля
+            const length = parseInt(passwordInput.value) || 12;
+
+            // Строим набор символов на основе выбранных опций
+            let charset = '';
+
+            if (numbersCheckbox.checked) charset += '0123456789';
+            if (lowercaseCheckbox.checked) charset += 'abcdefghijklmnopqrstuvwxyz';
+            if (uppercaseCheckbox.checked) charset += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            if (symbolsCheckbox.checked) charset += '!@#$%^&*()_+-=[]{}|;:,.<>?';
+
+            // Если ничего не выбрано, используем все символы по умолчанию
+            if (charset === '') {
+                charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=[]{}|;:,.<>?';
+            }
+
+            // Генерируем пароль
+            let password = '';
+            for (let i = 0; i < length; i++) {
+                const randomIndex = Math.floor(Math.random() * charset.length);
+                password += charset[randomIndex];
+            }
+
+            // Выводим результат
+            resultElement.textContent = password;
+        });
+    });
+</script>
+</body>
+</html>

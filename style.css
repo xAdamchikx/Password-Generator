@@ -1,0 +1,55 @@
+div {
+    display: flex;
+    justify-content: center; /* центрирование по горизонтали */
+    align-items: center;     /* центрирование по вертикали */
+    height: 100vh;
+    flex-direction: column;
+}
+
+
+
+input[type="number"] {
+    width: 100px;
+    height: 50px;
+    font-size: 35px;
+    background: #7A85C1;
+    color: #FFF3DA;
+}
+
+input[type="checkbox"] {
+    width: 40px;
+    height: 30px;
+}
+
+p {
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    color: #b2b0e8;
+    margin: 8px;
+}
+
+button {
+    width: 200px;
+    height: 40px;
+    margin: 8px;
+    font-size: 20px;
+    background: #7A85C1;
+    color: white;
+
+}
+
+body {
+    margin: 0px;
+    background: #3B38A0;
+}
+
+* {
+    font-family: Monocraft;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none; /* Chrome, Safari, Edge */
+    margin: 0;
+}
